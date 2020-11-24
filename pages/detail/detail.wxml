@@ -1,0 +1,60 @@
+<!-- banner -->
+<!-- 详情图 -->
+<swiper  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{detail.goods_imgs}}" wx:key="index">
+    <swiper-item>
+    <view class="color">
+        <text>{{index+1}}/{{detail.goods_imgs.length}}</text>
+    </view>
+       <image src="{{item}}" data-src="{{item}}" bindtap="previewImage"></image>
+    </swiper-item>
+
+  </block>
+</swiper>
+<!--商品详情数据-->
+<scroll-view scroll-y="true">
+  <view class="detail">
+  <!-- <button  open-type="share"> -->
+ <view bindtap="share" class="iconfont icon-fenxiang" />
+<!-- </button> -->
+ <!-- <view class="ziti">分享</view> -->
+
+    <text class="price">￥{{detail.shop_price}}</text>
+    <text class="title">{{detail.goods_name}}</text>
+
+  <text class="desc">简介：{{detail.goods_desc}}</text>
+  <text class="imgtail">图文详情：</text>
+        <block wx:for="{{detail.goods_imgs}}" wx:key="index">
+        <view>
+         <image src="{{item}}" data-src="{{item}}" bindtap="previewImage"></image>
+         </view>
+         </block>
+    </view>
+  <view class="separate"></view>
+</scroll-view>
+
+
+
+
+
+<!--加入购物车-->
+<view class="detail-nav" data-goodsid="{{detail.goods_id}}">
+
+ <view bindtap="toCar" class="iconfont icon-home" />
+ <!-- <view class="ziti">店铺</view> -->
+
+ <view bindtap="toCar" class="iconfont icon-liaotian" />
+ <!-- <view class="ziti">咨询</view> -->
+
+ <view bindtap="toCar" class="iconfont icon-gouwuche" />
+ <!-- <view class="ziti">购物车</view> -->
+
+  <view bindtap="toCar" class="iconfont icon-shoucang" />
+  <!-- <view class="ziti">收藏</view> -->
+
+ <view class="line_nav"></view>
+ <button class="button-orange" bindtap="addCar" formType="submit">加入购物车</button>
+ <button class="button-red" bindtap="immeBuy" formType="submit">立即购买</button>
+</view>
+
+

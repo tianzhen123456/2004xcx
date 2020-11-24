@@ -1,0 +1,5 @@
+<!--pages/my/my.wxml-->
+<!-- <view>
+    <button type="primary" plain="true" bindtap="btnLogin">登录</button>
+</view> -->
+<text>我的</text>
